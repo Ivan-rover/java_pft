@@ -2,12 +2,14 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 public class HelperBase {
 	protected FirefoxDriver wd;
 
-	public HelperBase(FirefoxDriver wd) {
+	public HelperBase(WebDriver wd) {
 		this.wd = wd;
 	}
 
@@ -29,4 +31,9 @@ public class HelperBase {
 		}
 	}
 
+	public void fillContactForm(ContactData contactData) {
+	}
+
+	public void submitContactCreation() {
+	}
 }
