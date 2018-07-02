@@ -26,12 +26,15 @@ public class ApplicationManager {
 
 
 	public void init() {
-		if (browser == BrowserType.FIREFOX){
-			wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
+		if (browser.equals(BrowserType.FIREFOX)){
+		wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
+		//new ChromeOptions().setBinary("C://Program Files (x86)//Google//Chrome//Application//chrome.exe");
+
 
 		}
-		else if (browser == BrowserType.CHROME) {
+		else if (browser.equals(BrowserType.CHROME)) {
 			wd = new ChromeDriver();
+			new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe");
 		}
 		else if (browser == BrowserType.IE){
 			wd = new InternetExplorerDriver();
@@ -64,4 +67,7 @@ public class ApplicationManager {
 	}
 
 
-}
+//	public void setContactHelper(ContactHelper contactHelper) {
+//		this.contactHelper = contactHelper;
+	}
+
