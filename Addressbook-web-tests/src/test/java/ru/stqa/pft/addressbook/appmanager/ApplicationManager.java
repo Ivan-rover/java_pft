@@ -1,12 +1,10 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 
+//import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,26 +24,27 @@ public class ApplicationManager {
 
 
 	public void init() {
-		if (browser.equals(BrowserType.FIREFOX)){
-		wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
+		//if (browser.equals(BrowserType.FIREFOX)){
+		//wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
 		//new ChromeOptions().setBinary("C://Program Files (x86)//Google//Chrome//Application//chrome.exe");
 
 
-		}
-		else if (browser.equals(BrowserType.CHROME)) {
+		//}
+		//else if (browser.equals(BrowserType.CHROME)) {
 			wd = new ChromeDriver();
-			new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe");
-		}
-		else if (browser == BrowserType.IE){
-			wd = new InternetExplorerDriver();
+	//		new ChromeOptions().setBinary("C://Program Files (x86)//Google//Chrome//Application//chrome.exe");
+		//}
+		//else if (browser == BrowserType.IE){
+		//	wd = new InternetExplorerDriver();
 
-		}
-		wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
-		wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		//}
+	//	wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
+		wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
 		groupHelper = new GroupHelper(wd);
 		navigationHelper = new NavigationHelper(wd);
 		sessionHelper = new SessionHelper(wd);
+		contactHelper = new ContactHelper(wd);
 		sessionHelper.login("admin", "secret");
 	}
 
