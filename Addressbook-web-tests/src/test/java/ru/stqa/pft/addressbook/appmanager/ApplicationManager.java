@@ -39,7 +39,7 @@ public class ApplicationManager {
 
 		//}
 	//	wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C://Users//i.arkhipov//AppData//Local//Mozilla Firefox//firefox.exe"));
-		wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
 		groupHelper = new GroupHelper(wd);
 		navigationHelper = new NavigationHelper(wd);
@@ -57,13 +57,14 @@ public class ApplicationManager {
 	public GroupHelper getGroupHelper() {
 		return groupHelper;
 	}
+	public NavigationHelper getNavigationHelper() {
+		return navigationHelper;
+	}
 	public ContactHelper getContactHelper() {
 		return contactHelper;
 	}
 
-	public NavigationHelper getNavigationHelper() {
-		return navigationHelper;
-	}
+
 
 
 //	public void setContactHelper(ContactHelper contactHelper) {
