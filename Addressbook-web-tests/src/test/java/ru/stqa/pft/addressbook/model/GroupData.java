@@ -1,20 +1,43 @@
 package ru.stqa.pft.addressbook.model;
 
 public class GroupData {
+//	public void setId(int id) {
+//		this.id = id;
+//	}
+
+
 	private final String name;
+	private int id ;
 	private final String header;
 	private final String footer;
 
 
+
+
 	public GroupData(String name, String header, String footer) {
+		this.id = 0;
+		this.name = name;
+		this.header = header;
+		this.footer = footer;
+	}
+	public GroupData(int id, String header, String footer, String name) {
+		this.id = id;
 		this.name = name;
 		this.header = header;
 		this.footer = footer;
 	}
 
+
 	public String getName() {
+
 		return name;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		       this.id = id;
+		    }
 
 	public String getHeader() {
 		return header;
@@ -24,14 +47,6 @@ public class GroupData {
 		return footer;
 	}
 
-
-	@Override
-	public String toString() {
-		return "GroupData{" +
-				"name='" + name + '\'' +
-				'}';
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -39,11 +54,20 @@ public class GroupData {
 
 		GroupData groupData = (GroupData) o;
 
+		if (id != groupData.id) return false;
 		return name != null ? name.equals(groupData.name) : groupData.name == null;
 	}
 
 	@Override
 	public int hashCode() {
-		return name != null ? name.hashCode() : 0;
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + id;
+		return result;
+	}
+	@Override
+   public String toString() {
+		        return "GroupData{" +"name='" + name + '\'' + ", id='" + id + '\'' + '}';
 	}
 }
+
+
